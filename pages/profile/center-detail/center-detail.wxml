@@ -1,0 +1,10 @@
+<view class="cd-page">
+  <view class="cd-header"><text class="cd-title">{{title}}</text></view>
+  <view class="cd-list">
+    <view class="cd-item" wx:for="{{items}}" wx:key="name">
+      <text class="cd-name">{{item.name}}</text>
+      <text class="cd-value">{{item.value}}</text>
+      <text class="cd-note">{{item.note}}</text>
+    </view>
+  </view>
+</view>

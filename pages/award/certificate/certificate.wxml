@@ -1,0 +1,34 @@
+<view class="certificate-page">
+  <view class="certificate-frame">
+    <view class="certificate-border">
+      <view class="cert-header">
+        <text class="cert-title">荣誉证书</text>
+        <text class="cert-sub">CERTIFICATE OF ACHIEVEMENT</text>
+      </view>
+      <view class="cert-body">
+        <text class="cert-line">兹证明</text>
+        <text class="cert-name">{{studentName || '___________'}}</text>
+        <text class="cert-line">在「烽火渝路：“五小”抗战研学专线」中</text>
+        <text class="cert-line">表现优异，荣获</text>
+        <text class="cert-award">{{awardName || '优秀学员'}}</text>
+        <text class="cert-line">特发此证，以资鼓励</text>
+      </view>
+      <view class="cert-footer">
+        <text class="cert-date">{{date || '2026年____月____日'}}</text>
+        <text class="cert-org">五小先锋行研学组委会</text>
+      </view>
+    </view>
+  </view>
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label">学生姓名</text>
+      <input class="form-input" placeholder="请输入姓名" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">奖项名称</text>
+      <input class="form-input" placeholder="如：优秀学员、募资小英雄" bindinput="onAwardInput" />
+    </view>
+    <button class="generate-btn" bindtap="generateCert">生成证书</button>
+    <button class="download-btn" bindtap="downloadCert">⬇ 下载证书</button>
+  </view>
+</view>

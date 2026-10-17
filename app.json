@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/map/map",
+    "pages/cultural/cultural",
+    "pages/signup/signup",
+    "pages/award/award",
+    "pages/profile/profile",
+    "pages/award/certificate/certificate",
+    "pages/handbook/handbook",
+    "pages/detail/detail",
+    "pages/map-sub/map-sub",
+    "pages/profile/teacher/teacher",
+    "pages/profile/center-detail/center-detail",
+    "pages/cultural/payment/payment",
+    "pages/privacy/privacy",
+    "pages/cultural/points-redeem/points-redeem"
+  ],
+  "window": {
+    "navigationBarTitleText": "智慧五小",
+    "navigationBarBackgroundColor": "#D63031",
+    "backgroundColor": "#f5f5f5",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#8A8478",
+    "selectedColor": "#D63031",
+    "backgroundColor": "#FBF8F2",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "首页", "iconPath": "image/tab-home.png", "selectedIconPath": "image/tab-home-active.png" },
+      { "pagePath": "pages/cultural/cultural", "text": "文创", "iconPath": "image/tab-cultural.png", "selectedIconPath": "image/tab-cultural-active.png" },
+      { "pagePath": "pages/signup/signup", "text": "报名处", "iconPath": "image/tab-signup.png", "selectedIconPath": "image/tab-signup-active.png" },
+      { "pagePath": "pages/award/award", "text": "颁奖", "iconPath": "image/tab-award.png", "selectedIconPath": "image/tab-award-active.png" },
+      { "pagePath": "pages/profile/profile", "text": "我的", "iconPath": "image/tab-profile.png", "selectedIconPath": "image/tab-profile-active.png" }
+    ]
+  },
+  "requiredPrivateInfos": ["getLocation"],
+  "permission": { "scope.userLocation": { "desc": "你的位置信息将用于地图显示" } },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

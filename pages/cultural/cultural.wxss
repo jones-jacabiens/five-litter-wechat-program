@@ -1,0 +1,374 @@
+.cultural-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FBF8F2 0%, #F3EBDE 100%);
+}
+
+/* 顶部横幅（红色点缀） */
+.header-banner {
+  background: linear-gradient(135deg, var(--red-deep), var(--red));
+  padding: 40rpx 40rpx 50rpx;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  font-family: var(--font-title);
+  letter-spacing: 6rpx;
+}
+.header-subtitle {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 10rpx;
+  display: block;
+}
+
+/* 通用图标尺寸（约为字体2倍，粗线条） */
+.icon-xs { width: 48rpx; height: 48rpx; vertical-align: middle; display: inline-block; }
+.icon-sm { width: 56rpx; height: 56rpx; vertical-align: middle; display: inline-block; }
+
+/* 主Tab（国风分段控件） */
+.tab-bar {
+  display: flex;
+  margin: -22rpx 24rpx 20rpx;
+  background: rgba(201, 162, 39, 0.16);
+  border: 2rpx solid var(--gold-light);
+  border-radius: 18rpx;
+  padding: 6rpx;
+  position: relative;
+  z-index: 2;
+}
+.tab-item {
+  flex: 1;
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  position: relative;
+}
+.tab-item.active {
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  box-shadow: 0 2rpx 10rpx rgba(192, 57, 43, 0.3);
+}
+.tab-icon { width: 34rpx; height: 34rpx; margin-right: 8rpx; }
+.tab-text { font-size: 28rpx; font-weight: 500; color: var(--ink); }
+.tab-item.active .tab-text { color: #fff; }
+
+.section-content { padding: 0 24rpx 40rpx; }
+
+/* ===== 云认养 ===== */
+.adoption-intro {
+  background: linear-gradient(120deg, #F7F3EC, #F1E7D9);
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 20rpx 26rpx 20rpx 26rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 14rpx rgba(139, 26, 43, 0.06);
+}
+.intro-title {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--ink);
+  font-family: var(--font-title);
+}
+.intro-title .icon-sm { margin-right: 10rpx; }
+.intro-desc {
+  font-size: 24rpx;
+  color: var(--ink-light);
+  margin-top: 10rpx;
+  display: block;
+  line-height: 1.6;
+}
+.search-box { display: flex; gap: 16rpx; margin-bottom: 20rpx; }
+.search-input {
+  flex: 1;
+  height: 72rpx;
+  border: 2rpx solid var(--gold-light);
+  border-radius: 14rpx;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  background: #FBF8F2;
+  color: var(--ink);
+}
+.search-btn {
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+  border-radius: 14rpx;
+  line-height: 72rpx;
+}
+
+.tree-detail {
+  background: linear-gradient(120deg, #F7F3EC, #F1E7D9);
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 26rpx 20rpx 26rpx 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 14rpx rgba(139, 26, 43, 0.06);
+}
+.tree-img {
+  width: 100%;
+  height: 300rpx;
+  background: #EFE6D6;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+.tree-info { margin-bottom: 16rpx; }
+.tree-name { font-size: 32rpx; font-weight: bold; color: var(--ink); display: block; font-family: var(--font-title); }
+.tree-id { font-size: 24rpx; color: var(--ink-light); display: block; margin-top: 4rpx; }
+.tree-location { font-size: 24rpx; color: var(--ink-light); display: block; margin-top: 4rpx; }
+.tree-status { font-size: 24rpx; color: var(--red); display: block; margin-top: 4rpx; font-weight: 500; }
+.adopt-btn {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  margin-top: 16rpx;
+}
+.interact-area { background: rgba(201, 162, 39, 0.12); border-radius: 16rpx; padding: 20rpx; }
+.interact-title { display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: bold; color: var(--ink); }
+.interact-title .icon-sm { margin-right: 8rpx; }
+.growth-bar {
+  height: 24rpx;
+  background: rgba(201, 162, 39, 0.18);
+  border-radius: 12rpx;
+  margin: 16rpx 0;
+  overflow: hidden;
+}
+.growth-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold));
+  border-radius: 12rpx;
+  transition: width 0.3s;
+}
+.growth-text { font-size: 24rpx; color: var(--ink-light); text-align: center; display: block; }
+.interact-btns { display: flex; gap: 20rpx; margin: 16rpx 0; }
+.action-btn {
+  flex: 1;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  font-size: 26rpx;
+  border-radius: 32rpx;
+  background: #FBF8F2;
+  color: var(--red);
+  border: 2rpx solid var(--red);
+}
+.interact-hint { font-size: 22rpx; color: var(--ink-light); text-align: center; display: block; }
+.tree-list { margin-top: 20rpx; }
+.list-title { font-size: 28rpx; font-weight: bold; color: var(--ink); display: block; margin-bottom: 12rpx; font-family: var(--font-title); }
+.tree-card {
+  background: #F7F3EC;
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 16rpx 22rpx 16rpx 22rpx;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(139, 26, 43, 0.05);
+}
+.card-name { font-size: 26rpx; font-weight: 500; color: var(--ink); display: block; }
+.card-id { font-size: 22rpx; color: var(--ink-light); display: block; }
+.card-location { font-size: 22rpx; color: var(--ink-light); display: block; margin-top: 4rpx; }
+
+/* ===== 文创商品 ===== */
+.shop-header { text-align: center; padding: 20rpx 0; }
+.shop-title { display: inline-flex; align-items: center; font-size: 32rpx; font-weight: bold; color: var(--red-deep); font-family: var(--font-title); }
+.shop-title .icon-sm { margin-right: 10rpx; }
+.shop-desc { font-size: 24rpx; color: var(--ink-light); margin-top: 6rpx; display: block; }
+.product-grid { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 10rpx 0; }
+.product-card {
+  width: calc(50% - 10rpx);
+  margin-bottom: 20rpx;
+  background: #F7F3EC;
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 20rpx 26rpx 20rpx 26rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(139, 26, 43, 0.06);
+  text-align: center;
+  box-sizing: border-box;
+}
+.product-card:nth-child(3n+1) { width: 100%; }
+.product-card:nth-child(3n+2) { border-radius: 26rpx 20rpx 26rpx 20rpx; }
+.product-img-placeholder {
+  width: 100%;
+  height: 200rpx;
+  background-color: rgba(247, 243, 236, 0.7);
+  border-radius: 14rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90rpx;
+  overflow: hidden;
+}
+.farm-img { width: 100%; height: 100%; }
+.product-tag {
+  display: inline-block;
+  font-size: 18rpx;
+  color: #B0272E;
+  background: rgba(214, 48, 49, 0.1);
+  padding: 2rpx 10rpx;
+  border-radius: 16rpx;
+  margin-top: 6rpx;
+}
+.product-name { font-size: 26rpx; color: var(--ink); display: block; }
+.product-price { font-size: 32rpx; font-weight: bold; color: var(--red); display: block; margin: 8rpx 0; }
+.buy-btn { height: 56rpx; line-height: 56rpx; background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #fff; font-size: 24rpx; border-radius: 28rpx; margin-top: 8rpx; }
+.product-btns { display: flex; flex-direction: row; gap: 10rpx; margin-top: 8rpx; }
+.cart-btn { flex: 1; height: 52rpx; line-height: 52rpx; background: #FBF8F2; color: var(--red); font-size: 22rpx; border: 2rpx solid var(--red); border-radius: 26rpx; padding: 0; }
+.cart-float {
+  position: fixed;
+  bottom: 140rpx;
+  right: 30rpx;
+  z-index: 50;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 20rpx rgba(192, 57, 43, 0.4);
+}
+.cart-icon { width: 44rpx; height: 44rpx; }
+.cart-badge {
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+  background: var(--gold);
+  color: #fff;
+  font-size: 20rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border-radius: 16rpx;
+  text-align: center;
+}
+.cart-drawer { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 60; }
+.cart-mask { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
+.cart-panel {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #FBF8F2;
+  border-radius: 30rpx 30rpx 0 0;
+  padding: 30rpx;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.cart-panel-title { font-size: 32rpx; font-weight: bold; color: var(--ink); margin-bottom: 20rpx; font-family: var(--font-title); }
+.cart-item { display: flex; justify-content: space-between; padding: 16rpx 0; border-bottom: 2rpx solid rgba(201, 162, 39, 0.3); }
+.cart-item-name { font-size: 26rpx; color: var(--ink); flex: 1; }
+.cart-item-count { font-size: 24rpx; color: var(--ink-light); margin: 0 20rpx; }
+.cart-item-price { font-size: 26rpx; color: var(--red); font-weight: bold; }
+.cart-total { display: flex; justify-content: space-between; align-items: center; padding-top: 20rpx; }
+.cart-total-text { font-size: 30rpx; font-weight: bold; color: var(--red); }
+.cart-actions { display: flex; gap: 12rpx; }
+.cart-checkout { flex: 1; height: 56rpx; line-height: 56rpx; background: #EFE6D6; color: var(--ink); font-size: 24rpx; border-radius: 28rpx; padding: 0; }
+.cart-btn-buy { flex: 1; height: 56rpx; line-height: 56rpx; background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #fff; font-size: 24rpx; border-radius: 28rpx; padding: 0; }
+
+/* 文创子Tab（国风） */
+.sub-tabs {
+  display: flex;
+  background: rgba(201, 162, 39, 0.16);
+  border: 2rpx solid var(--gold-light);
+  border-radius: 16rpx;
+  padding: 6rpx;
+  margin-bottom: 20rpx;
+}
+.sub-tab {
+  flex: 1;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  font-size: 26rpx;
+  color: var(--ink-light);
+  border-radius: 10rpx;
+}
+.sub-tab.active {
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 积分商城 */
+.points-header-inline {
+  background: linear-gradient(135deg, var(--red-deep), var(--red));
+  border-radius: 22rpx 28rpx 22rpx 28rpx;
+  padding: 30rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.points-balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52rpx;
+  font-weight: bold;
+  color: #F2C14E;
+}
+.points-balance .icon-sm { margin-right: 8rpx; }
+.points-label { font-size: 26rpx; color: rgba(255, 255, 255, 0.85); margin-top: 8rpx; display: block; }
+.promo-bar {
+  background: rgba(201, 162, 39, 0.14);
+  border: 2rpx solid var(--gold-light);
+  border-radius: 14rpx;
+  padding: 16rpx;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+.promo-bar-text { font-size: 26rpx; color: var(--red-deep); font-weight: 500; }
+.promo-tag-mini { font-size: 20rpx; color: #fff; background: var(--red); display: inline-block; padding: 2rpx 10rpx; border-radius: 6rpx; margin-bottom: 6rpx; }
+.promo-tag-mini.gold { background: var(--gold); }
+.earn-section { background: rgba(201, 162, 39, 0.12); border-radius: 18rpx; padding: 20rpx; text-align: center; margin-top: 16rpx; }
+.earn-title { font-size: 26rpx; font-weight: bold; color: var(--ink); display: block; font-family: var(--font-title); }
+.earn-text { font-size: 22rpx; color: var(--ink-light); margin-top: 6rpx; display: block; }
+
+/* 优惠须知弹窗 */
+.promo-mask { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 80; }
+.promo-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FBF8F2;
+  border-radius: 30rpx 30rpx 0 0;
+  padding: 40rpx;
+  z-index: 90;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.promo-panel-title { font-size: 32rpx; font-weight: bold; color: var(--ink); text-align: center; margin-bottom: 24rpx; display: block; font-family: var(--font-title); }
+.promo-item { font-size: 26rpx; color: var(--ink-light); line-height: 2; display: block; }
+.promo-gotit {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  margin-top: 30rpx;
+}
+.back-arrow-tree { font-size: 28rpx; color: var(--red-deep); padding: 10rpx 0; margin-bottom: 10rpx; }

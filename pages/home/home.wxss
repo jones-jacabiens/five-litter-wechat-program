@@ -1,0 +1,227 @@
+/* 首页线框：总功能区 + 分功能区，固定视口不整页滚动 */
+.home-page {
+  min-height: 100vh;
+  background: var(--paper);
+  padding-bottom: 140rpx;
+}
+
+/* ===== 国风 Hero（红岩渐变 + 山形占位） ===== */
+.hero {
+  position: relative;
+  flex-shrink: 0;
+  padding: 30rpx 30rpx 56rpx;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(242, 193, 78, 0.3), transparent 38%),
+    linear-gradient(155deg, var(--red-deep) 0%, var(--red) 52%, var(--red-light) 100%);
+  color: #fff;
+}
+.hero-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand-name {
+  font-family: var(--font-title);
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 4rpx;
+  margin-right: 16rpx;
+}
+.brand-logo {
+  width: 160rpx;
+  height: 160rpx;
+  flex-shrink: 0;
+  margin-left: 20rpx;
+  border-radius: 28rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.18);
+}
+.hero-slogan {
+  position: relative;
+  margin-top: 20rpx;
+}
+.slogan-main {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 52rpx;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 2rpx;
+}
+.slogan-sub {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 2rpx;
+}
+
+/* AI 导览轨迹条（画卷样式） */
+.hero-route {
+  position: relative;
+  z-index: 2;
+  margin-top: 24rpx;
+  padding: 12rpx 10rpx 10rpx;
+  background: rgba(139, 26, 43, 0.35);
+  border: 2rpx solid rgba(242, 193, 78, 0.5);
+  border-radius: 16rpx;
+}
+.hero-route-track { position: relative; height: 66rpx; }
+.hero-route-line {
+  position: absolute;
+  left: 24rpx;
+  right: 24rpx;
+  top: 10rpx;
+  height: 2rpx;
+  background: linear-gradient(90deg, rgba(242, 193, 78, 0.2), var(--gold-light), rgba(242, 193, 78, 0.2));
+}
+.hero-route-node {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-route-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 8rpx rgba(242, 193, 78, 0.8);
+}
+.hero-route-node-name {
+  margin-top: 6rpx;
+  font-size: 16rpx;
+  color: rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
+}
+
+/* 山形（CSS 三角形，先占位后续可换真图） */
+.mtn {
+  position: absolute;
+  bottom: -2rpx;
+  width: 0;
+  height: 0;
+  border-left: 160rpx solid transparent;
+  border-right: 160rpx solid transparent;
+  border-bottom: 100rpx solid rgba(247, 243, 236, 0.9);
+  z-index: 1;
+}
+.mtn-1 { left: -40rpx; transform: scale(1.2); }
+.mtn-2 { left: 240rpx; border-left-width: 220rpx; border-right-width: 220rpx; border-bottom-width: 150rpx; }
+.mtn-3 { right: -60rpx; transform: scale(1.1); }
+
+/* ===== 线路概览 ===== */
+.route-section {
+  flex-shrink: 0;
+  padding-top: 28rpx;
+}
+.route-section .gf-section-title {
+  padding: 0 24rpx;
+  margin-bottom: 20rpx;
+}
+.route-scroll { width: 100%; }
+.route-row {
+  display: flex;
+  padding: 4rpx 24rpx;
+}
+.route-row .gf-route-card {
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+/* ===== 分功能区：5 张功能卡 ===== */
+.func-area {
+  padding: 28rpx 24rpx 32rpx;
+}
+
+/* ===== 五小 IP 板块 ===== */
+.ip-section { padding-top: 24rpx; }
+.ip-scroll { width: 100%; }
+.ip-row {
+  display: flex;
+  padding: 4rpx 24rpx;
+}
+.ip-card {
+  flex-shrink: 0;
+  width: 210rpx;
+  margin-right: 20rpx;
+  border-radius: 20rpx 26rpx 20rpx 26rpx;
+  overflow: hidden;
+  background: #FBF8F2;
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  box-shadow: 0 4rpx 16rpx rgba(139, 26, 43, 0.1);
+}
+.ip-img { width: 100%; height: 200rpx; }
+.ip-info { padding: 14rpx 14rpx 16rpx; }
+.ip-name { display: block; font-size: 28rpx; font-weight: bold; color: #B0272E; font-family: var(--font-title); }
+.ip-place { display: block; font-size: 20rpx; color: #6B6560; margin-top: 4rpx; }
+.ip-skills { display: block; font-size: 18rpx; color: #8A8478; margin-top: 6rpx; line-height: 1.5; }
+
+/* ===== 快捷入口 ===== */
+.quick-section { padding-top: 24rpx; }
+.quick-grid {
+  display: flex;
+  background: #F7F3EC;
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 22rpx 18rpx 22rpx 18rpx;
+  padding: 20rpx 0;
+  margin: 0 24rpx;
+}
+.quick-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quick-icon { width: 64rpx; height: 64rpx; }
+.quick-name { font-size: 22rpx; color: #3A3A3A; margin-top: 12rpx; }
+.safe-main { display: flex; flex-direction: column; }
+.gf-safe-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.safe-status {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.safe-status .gf-status-dot { margin-right: 10rpx; }
+.safe-snapshot {
+  margin-top: 16rpx;
+  padding-top: 14rpx;
+  border-top: 2rpx solid rgba(242, 193, 78, 0.3);
+}
+.snap-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+.snap-item:last-child { margin-bottom: 0; }
+.snap-item .gf-status-dot { margin-right: 10rpx; }
+.snap-name { color: #fff; font-size: 22rpx; font-weight: 500; margin-right: 14rpx; }
+.snap-loc { color: rgba(255, 255, 255, 0.75); font-size: 20rpx; }
+.safe-btn {
+  flex-shrink: 0;
+  padding: 14rpx 26rpx;
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2rpx solid rgba(242, 193, 78, 0.7);
+  color: var(--gold-light);
+  font-size: 24rpx;
+}

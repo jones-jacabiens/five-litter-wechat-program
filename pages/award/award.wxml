@@ -1,0 +1,61 @@
+<view class="award-container">
+  <view class="star-tabs">
+    <view class="star-tab {{starTab == 0 ? 'active' : ''}}" bindtap="switchStarTab" data-tab="0"><image class="icon-xs" src="/image/icon-coin.png"/>募资排行榜</view>
+    <view class="star-tab {{starTab == 1 ? 'active' : ''}}" bindtap="switchStarTab" data-tab="1"><image class="icon-xs" src="/image/icon-star.png"/>能力之星排行榜</view>
+  </view>
+
+  <view wx:if="{{starTab == 0}}" class="star-list">
+    <view class="star-header">
+      <view class="star-title"><image class="icon-sm" src="/image/icon-coin.png"/><text>募资小英雄榜</text></view>
+      <text class="star-desc">还原"集资救国"历史情境，比拼募资额</text>
+    </view>
+    <view class="star-item" wx:for="{{fundRanking}}" wx:for-index="idx" wx:key="id">
+      <text class="star-rank {{idx < 3 ? 'top' : ''}}">{{item.rank}}</text>
+      <text class="star-name">{{item.name}}</text>
+      <text class="star-amount">¥{{item.amount}}</text>
+      <text class="star-school">{{item.school}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{starTab == 1}}" class="star-list">
+    <view class="star-header">
+      <view class="star-title"><image class="icon-sm" src="/image/icon-star.png"/><text>能力之星榜</text></view>
+      <text class="star-desc">综合口才、协作、实践等能力积分排名</text>
+    </view>
+    <view class="star-item" wx:for="{{abilityRanking}}" wx:for-index="idx" wx:key="id">
+      <text class="star-rank {{idx < 3 ? 'top' : ''}}">{{item.rank}}</text>
+      <text class="star-name">{{item.name}}</text>
+      <text class="star-amount">{{item.score}}分</text>
+      <text class="star-school">{{item.school}}</text>
+    </view>
+  </view>
+
+  <!-- 荣誉领奖台 -->
+  <view class="podium-section">
+    <view class="podium-title">荣誉领奖台</view>
+    <view class="podium">
+      <view class="podium-step">
+        <image class="podium-figure" src="/image/stickman.png"></image>
+        <text class="podium-name">{{podium[0].name}}</text>
+        <text class="podium-value">{{podium[0].value}}</text>
+        <view class="podium-block silver">2</view>
+      </view>
+      <view class="podium-step">
+        <image class="podium-figure champ" src="/image/stickman-trophy.png"></image>
+        <text class="podium-name">{{podium[1].name}}</text>
+        <text class="podium-value">{{podium[1].value}}</text>
+        <view class="podium-block gold">1</view>
+      </view>
+      <view class="podium-step">
+        <image class="podium-figure" src="/image/stickman.png"></image>
+        <text class="podium-name">{{podium[2].name}}</text>
+        <text class="podium-value">{{podium[2].value}}</text>
+        <view class="podium-block bronze">3</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cert-btn-section">
+    <button class="cert-btn" bindtap="goCertificate"><image class="icon-xs" src="/image/icon-scroll.png"/>生成电子证书</button>
+  </view>
+</view>

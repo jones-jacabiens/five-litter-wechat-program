@@ -1,0 +1,128 @@
+<view class="page-container">
+  <!-- ====== 微信原生地图（腾讯地形底图，原生支持捏合缩放）====== -->
+  <map id="myMap" class="map"
+    latitude="{{centerLat}}"
+    longitude="{{centerLng}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+    include-points="{{allPoints}}"
+    enable-zoom
+    enable-scroll
+    show-compass
+    enable-3D="{{enable3D}}"
+    enable-overlooking="{{enable3D}}"
+    enable-pitch="{{enable3D}}"
+    enable-satellite="{{showSatellite}}"
+    bindmarkertap="onMarkerTap">
+  </map>
+
+  <!-- 地形 / 卫星切换 -->
+  <view class="layer-toggle" bindtap="toggleSatellite">
+    <text class="layer-toggle-text">{{showSatellite ? '🗺 标准' : '🛰 卫星'}}</text>
+  </view>
+
+  <!-- ====== 顶部标题 ====== -->
+  <view class="submap-header">
+    <text class="submap-title">{{bigLocationName}} · 内部路线</text>
+  </view>
+
+  <!-- ====== 右侧侧边栏 ====== -->
+  <!-- 展开状态 -->
+  <view class="sidebar {{sidebarVisible ? 'sidebar-show' : 'sidebar-hide'}}">
+    <!-- Tab切换栏 -->
+    <view class="sidebar-tabs">
+      <view
+        class="tab-item {{activeTab === tab.key ? 'tab-active' : ''}}"
+        wx:for="{{tabDefs}}"
+        wx:key="key"
+        data-tab="{{item.key}}"
+        bindtap="switchTab"
+      >
+        <text class="tab-label">{{item.label}}</text>
+        <text class="tab-count" wx:if="{{item.key === 'todo' && todoCount > 0}}">{{todoCount}}</text>
+        <text class="tab-count count-progress" wx:elif="{{item.key === 'in_progress' && inProgressCount > 0}}">{{inProgressCount}}</text>
+        <text class="tab-count count-done" wx:elif="{{item.key === 'done' && doneCount > 0}}">{{doneCount}}</text>
+      </view>
+    </view>
+
+    <!-- 活动列表 -->
+    <scroll-view class="sidebar-scroll" scroll-y>
+      <view class="group-list" wx:if="{{displayGroups.length > 0}}">
+        <view class="group-item" wx:for="{{displayGroups}}" wx:for-item="group" wx:key="id">
+          <!-- 子地点标题 + 进度条 -->
+          <view class="loc-header">
+            <view class="loc-title-row">
+              <text class="loc-icon">
+                <text wx:if="{{group.type === 'start'}}">🚩</text>
+                <text wx:elif="{{group.type === 'rest'}}">🍽️</text>
+                <text wx:else>📍</text>
+              </text>
+              <text class="loc-name">{{group.name}}</text>
+              <text class="loc-progress-text">{{group.progress}}%</text>
+            </view>
+            <!-- 进度条 -->
+            <view class="progress-bar-bg">
+              <view class="progress-bar-fill" style="width: {{group.progress}}%"></view>
+            </view>
+            <text class="loc-stat">已完成 {{group.doneCount}}/{{group.totalCount}}</text>
+          </view>
+
+          <!-- 该子地点下的活动列表（缩进） -->
+          <view class="activity-list">
+            <view
+              class="activity-item {{act.status === 'done' ? 'act-done' : ''}} {{act.status === 'in_progress' ? 'act-progress' : ''}}"
+              wx:for="{{group.visibleActivities}}"
+              wx:for-item="act"
+              wx:key="id"
+              data-actid="{{act.id}}"
+              data-locid="{{group.id}}"
+              bindtap="onActivityTap"
+            >
+              <!-- 方框（用catchtap阻止冒泡到onActivityTap） -->
+              <view
+                class="checkbox {{act.status === 'done' ? 'cb-checked' : ''}}"
+                data-actid="{{act.id}}"
+                data-locid="{{group.id}}"
+                catchtap="toggleCheckbox"
+              >
+                <text wx:if="{{act.status === 'done'}}">✓</text>
+                <text wx:else> </text>
+              </view>
+
+              <!-- 活动详情 -->
+              <view class="act-body">
+                <view class="act-name-row">
+                  <text class="act-name">{{act.name}}</text>
+                  <text class="act-npc" wx:if="{{act.npc !== '—'}}">{{act.npc}}</text>
+                  <text class="act-duration" wx:if="{{act.duration !== '—'}}">{{act.duration}}</text>
+                </view>
+                <text class="act-content">{{act.content}}</text>
+                <text class="act-badge-progress" wx:if="{{act.status === 'in_progress'}}">⏳ 进行中</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:else>
+        <text class="empty-icon">
+          <text wx:if="{{activeTab === 'todo'}}">📋</text>
+          <text wx:elif="{{activeTab === 'in_progress'}}">⏸️</text>
+          <text wx:else>🏁</text>
+        </text>
+        <text class="empty-text">
+          <text wx:if="{{activeTab === 'todo'}}">暂无待办活动</text>
+          <text wx:elif="{{activeTab === 'in_progress'}}">暂无进行中的活动</text>
+          <text wx:else>暂无已完成的活动</text>
+        </text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- ====== 侧边栏切换按钮（放在sidebar外侧） ====== -->
+  <view class="toggle-btn {{sidebarVisible ? 'toggle-btn-visible' : 'toggle-btn-hidden'}}" bindtap="toggleSidebar">
+    <text class="toggle-arrow">{{sidebarVisible ? '▸' : '◂'}}</text>
+  </view>
+</view>

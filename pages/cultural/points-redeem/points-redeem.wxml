@@ -1,0 +1,19 @@
+<view class="redeem-page">
+  <view class="redeem-card">
+    <text class="redeem-icon">{{icon}}</text>
+    <text class="redeem-title">{{name}}</text>
+    <text class="redeem-cost">{{cost}} 积分</text>
+    <text class="redeem-balance">当前积分：{{points}}</text>
+    <button class="redeem-confirm-btn" bindtap="confirmRedeem">确认兑换</button>
+    <button class="redeem-cancel-btn" bindtap="goBack">再想想</button>
+  </view>
+  <view class="rules-section">
+    <text class="rules-title">📋 积分获取与使用规则</text>
+    <text class="rules-text">• 参加烽火渝路研学营可获得100积分</text>
+    <text class="rules-text">• 完成站点任务可获得20积分/个</text>
+    <text class="rules-text">• 发表活动评价可获得10积分</text>
+    <text class="rules-text">• 推荐好友注册可获得30积分</text>
+    <text class="rules-text">• 积分有效期：自获取之日起12个月</text>
+    <text class="rules-text">• 限时优惠：每月1日积分商品8折兑换</text>
+  </view>
+</view>

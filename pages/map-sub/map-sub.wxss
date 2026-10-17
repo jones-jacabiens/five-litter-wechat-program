@@ -1,0 +1,279 @@
+/* ==================== 页面容器 ==================== */
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #F3EBDE;
+}
+
+/* ==================== 微信原生地图（全屏，原生捏合缩放） ==================== */
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 地形 / 卫星切换 */
+.layer-toggle {
+  position: absolute;
+  left: 20rpx;
+  top: 120rpx;
+  z-index: 30;
+  background: #FBF8F2;
+  border: 2rpx solid rgba(51, 51, 51, 0.35);
+  border-radius: 30rpx;
+  padding: 10rpx 22rpx;
+  box-shadow: 0 4rpx 12rpx rgba(60, 50, 40, 0.14);
+}
+.layer-toggle-text {
+  font-size: 24rpx;
+  color: #3A3A3A;
+  font-family: var(--font-title);
+}
+
+/* ==================== 顶部标题 ==================== */
+.submap-header {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  z-index: 10;
+  pointer-events: none;
+}
+.submap-title {
+  display: inline-block;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #B0272E, #D63031);
+  border-radius: 32rpx 32rpx 32rpx 12rpx;
+  padding: 10rpx 26rpx;
+  box-shadow: 0 4rpx 14rpx rgba(139, 26, 43, 0.22);
+  font-family: var(--font-title);
+}
+
+/* ==================== 侧边栏（宣纸底，墨+红） ==================== */
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280rpx;
+  height: 100vh;
+  background: #FBF8F2;
+  border-left: 2rpx solid rgba(51, 51, 51, 0.14);
+  border-radius: 22rpx 0 0 22rpx;
+  box-shadow: -4rpx 0 18rpx rgba(60, 50, 40, 0.12);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+.sidebar-show { transform: translateX(0); }
+.sidebar-hide { transform: translateX(100%); }
+
+/* Tab 切换栏（墨色底，红选中） */
+.sidebar-tabs {
+  display: flex;
+  background: #F3EBDE;
+  border-radius: 14rpx;
+  margin: 12rpx 12rpx 0;
+  padding: 4rpx;
+  flex-shrink: 0;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 2rpx;
+  font-size: 22rpx;
+  color: #6B6560;
+  border-radius: 10rpx;
+  position: relative;
+  cursor: pointer;
+}
+.tab-active {
+  color: #fff;
+  font-weight: bold;
+  background: linear-gradient(135deg, #D63031, #B0272E);
+  box-shadow: 0 2rpx 8rpx rgba(214, 48, 49, 0.3);
+}
+.tab-count {
+  display: inline-block;
+  font-size: 18rpx;
+  color: #fff;
+  background: #C9A227;
+  border-radius: 12rpx;
+  padding: 0 8rpx;
+  margin-left: 4rpx;
+  line-height: 26rpx;
+  min-width: 18rpx;
+  text-align: center;
+}
+.tab-count.count-progress { background: #D63031; }
+.tab-count.count-done { background: #5B8A72; }
+
+/* 滚动列表 */
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 12rpx;
+}
+
+/* 分组任务（时间轴结构，细线条） */
+.group-list { padding-left: 16rpx; }
+.group-item {
+  position: relative;
+  padding: 12rpx 0 12rpx 20rpx;
+  margin-bottom: 4rpx;
+  background: transparent;
+  border-left: 2rpx solid rgba(51, 51, 51, 0.25);
+}
+.group-item::before {
+  content: '';
+  position: absolute;
+  left: -10rpx;
+  top: 22rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #D63031;
+  border: 3rpx solid #FBF8F2;
+  box-shadow: 0 0 6rpx rgba(214, 48, 49, 0.5);
+}
+.group-item:first-child::before { background: #C9A227; box-shadow: 0 0 6rpx rgba(201, 162, 39, 0.5); }
+
+/* 子地点标题行 */
+.loc-header { margin-bottom: 6rpx; }
+.loc-title-row { display: flex; align-items: center; margin-bottom: 6rpx; }
+.loc-icon { font-size: 22rpx; margin-right: 6rpx; flex-shrink: 0; }
+.loc-name {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #3A3A3A;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loc-progress-text {
+  font-size: 20rpx;
+  color: #D63031;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-left: 6rpx;
+}
+
+/* 进度条（红金） */
+.progress-bar-bg {
+  height: 10rpx;
+  background: rgba(51, 51, 51, 0.12);
+  border-radius: 5rpx;
+  overflow: hidden;
+  margin-bottom: 4rpx;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #D63031, #E4573A);
+  border-radius: 5rpx;
+  transition: width 0.3s ease;
+}
+.loc-stat { font-size: 18rpx; color: #8A8478; }
+
+/* 活动项 */
+.activity-list { padding-left: 2rpx; }
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10rpx 6rpx;
+  border-left: 2rpx solid rgba(51, 51, 51, 0.2);
+  margin-left: 4rpx;
+  cursor: pointer;
+  border-radius: 0 12rpx 12rpx 0;
+}
+.activity-item:active { background: rgba(214, 48, 49, 0.08); }
+.act-done { opacity: 0.5; }
+.act-done .act-name { text-decoration: line-through; color: #8A8478; }
+.act-progress {
+  background: rgba(214, 48, 49, 0.06);
+  border-left-color: #D63031;
+  border-radius: 12rpx;
+}
+
+/* 方框 */
+.checkbox {
+  width: 28rpx;
+  height: 28rpx;
+  border: 2rpx solid #333;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 8rpx;
+  margin-top: 2rpx;
+  font-size: 18rpx;
+  color: #fff;
+  cursor: pointer;
+}
+.cb-checked { background: #D63031; border-color: #D63031; color: #fff; }
+
+/* 活动详情 */
+.act-body { flex: 1; min-width: 0; }
+.act-name-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4rpx; }
+.act-name { font-size: 22rpx; font-weight: bold; color: #3A3A3A; }
+.act-npc {
+  font-size: 18rpx;
+  color: #B0272E;
+  background: rgba(214, 48, 49, 0.1);
+  padding: 0 8rpx;
+  border-radius: 6rpx;
+  line-height: 26rpx;
+}
+.act-duration { font-size: 18rpx; color: #8A8478; }
+.act-content {
+  font-size: 20rpx;
+  color: #6B6560;
+  line-height: 1.4;
+  margin-top: 4rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.act-badge-progress { font-size: 18rpx; color: #D63031; margin-top: 4rpx; display: inline-block; }
+
+/* 空状态 */
+.empty-state { display: flex; flex-direction: column; align-items: center; padding: 50rpx 20rpx; }
+.empty-icon { font-size: 48rpx; margin-bottom: 12rpx; }
+.empty-text { font-size: 24rpx; color: #8A8478; }
+
+/* 切换按钮（红） */
+.toggle-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 25;
+  width: 36rpx;
+  height: 88rpx;
+  background: linear-gradient(135deg, #D63031, #B0272E);
+  border-radius: 0 16rpx 16rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3rpx 0 10rpx rgba(139, 26, 43, 0.25);
+  cursor: pointer;
+  transition: right 0.25s ease;
+  transform: translateY(-50%);
+}
+.toggle-btn-visible { right: 280rpx; }
+.toggle-btn-hidden { right: 0; }
+.toggle-arrow { font-size: 24rpx; color: #fff; font-weight: bold; }
+
+/* ==================== 小屏适配 ==================== */
+@media screen and (max-width: 320px) {
+  .sidebar { width: 250rpx; }
+  .toggle-btn-visible { right: 250rpx; }
+}

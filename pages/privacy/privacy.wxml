@@ -1,0 +1,60 @@
+<view class="privacy-page">
+  <view class="back-btn" bindtap="goBack">‹ 返回</view>
+  <view class="privacy-header">隐私保护协议</view>
+  <view class="privacy-update">更新日期：2026年6月</view>
+  <scroll-view class="privacy-content" scroll-y>
+
+    <text class="section-title">一、引言</text>
+    <text class="section-bold">欢迎使用"五小先锋行"小程序（以下简称"本小程序"）。本小程序由"五小先锋行"研学项目团队（以下简称"我们"）运营。我们深知个人信息对您和您的孩子的重要性，并承诺严格遵守《中华人民共和国个人信息保护法》《中华人民共和国未成年人保护法》《儿童个人信息网络保护规定》等相关法律法规，采取相应的安全保护措施保护您和您孩子的个人信息安全。</text>
+    <text class="section-text">本隐私协议旨在向您说明，在使用本小程序的各项功能时，我们如何收集、使用、存储和保护您及您孩子的个人信息。请您在开始使用前仔细阅读并确认本协议的全部内容。如您有任何疑问，可随时通过文末联系方式与我们取得联系。</text>
+
+    <text class="section-title">二、我们收集的信息</text>
+    <text class="section-text">在您使用本小程序的过程中，我们可能在以下场景收集您和/或您孩子的以下信息：</text>
+    <text class="section-bold">（1）注册与个人信息：当您编辑个人资料时，我们会收集您填写的孩子姓名、性别、学校、年级等基本信息，用于研学活动的人员登记和能力评估。</text>
+    <text class="section-bold">（2）报名信息：当您提交研学报名时，我们会收集您填写的联系方式（手机号码）、参团人数、所选线路等信息，用于活动安排和紧急联络。</text>
+    <text class="section-bold">（3）位置信息：若您开启实时定位功能，我们将通过一站式定位手环和GPS马甲获取孩子在地图上的实时位置信息，用于活动期间的安全监护。该功能仅在您主动开启时生效，关闭后即停止收集。</text>
+    <text class="section-bold">（4）活动记录：在研学活动过程中，我们会收集孩子的任务完成情况、募资额、能力积分等数据，用于生成研学证书和排行榜。</text>
+    <text class="section-bold">（5）设备信息：我们会收集您使用的设备型号、操作系统版本等信息，用于保障小程序正常运行和持续优化体验。</text>
+
+    <text class="section-title">三、信息的使用目的</text>
+    <text class="section-text">我们收集的信息将用于以下目的：</text>
+    <text class="section-bold">（1）提供研学活动报名、行程安排、安全保障等核心服务；</text>
+    <text class="section-bold">（2）生成孩子的研学证书、能力评估报告和排行榜数据；</text>
+    <text class="section-bold">（3）云认养功能的树苗成长跟踪和果实邮寄服务；</text>
+    <text class="section-bold">（4）处理您的订单、支付及售后服务；</text>
+    <text class="section-bold">（5）优化产品设计、提升用户体验。</text>
+
+    <text class="section-title">四、儿童个人信息保护</text>
+    <text class="section-text">本小程序主要面向7-15岁中小学生及其家庭。我们高度重视儿童个人信息的保护，特此说明：</text>
+    <text class="section-bold">（1）本小程序收集的儿童个人信息（如姓名、学校、年级、位置等）仅用于研学活动的必要场景，不会用于任何其他商业目的；</text>
+    <text class="section-bold">（2）儿童的位置信息仅在活动期间且家长同意后方可开启，活动结束后不再持续收集；</text>
+    <text class="section-bold">（3）我们采取加密存储、访问控制等技术措施确保儿童信息安全；</text>
+    <text class="section-bold">（4）监护人有权随时查询、更正或删除您孩子的个人信息。</text>
+
+    <text class="section-title">五、信息的存储与保护</text>
+    <text class="section-bold">（1）存储位置：您的个人信息存储在中华人民共和国境内的服务器上。未经您单独同意，我们不会将数据转移至境外。</text>
+    <text class="section-bold">（2）存储期限：我们仅在实现本协议所述目的所必需的期限内保留您的信息，超出期限后将进行删除或匿名化处理。</text>
+    <text class="section-bold">（3）安全措施：我们采用SSL加密传输、数据脱敏处理、访问权限控制等业界通行的安全技术措施，防止信息泄露、篡改或丢失。</text>
+
+    <text class="section-title">六、信息的共享与披露</text>
+    <text class="section-text">我们不会将您的个人信息出售给任何第三方。仅在以下情形下可能共享必要信息：</text>
+    <text class="section-bold">（1）获得您明确同意后；</text>
+    <text class="section-bold">（2）应法律法规要求或政府部门依法提出要求；</text>
+    <text class="section-bold">（3）为保障活动安全，在紧急情况下（如孩子走失）将位置信息共享给活动执行团队和安保人员。</text>
+
+    <text class="section-title">七、您的权利</text>
+    <text class="section-text">根据相关法律法规，您享有以下权利：</text>
+    <text class="section-bold">（1）查阅权：您可以在"我的"页面查看已填写的个人信息；</text>
+    <text class="section-bold">（2）更正权：如信息有误，您可在"我的一编辑"中进行修改；</text>
+    <text class="section-bold">（3）删除权：您可通过联系我们要求删除您和您孩子的个人信息；</text>
+    <text class="section-bold">（4）撤回同意权：您可在设置中关闭位置信息授权等功能。</text>
+
+    <text class="section-title">八、隐私协议的更新</text>
+    <text class="section-text">我们可能根据法律法规变化或业务调整适时更新本协议。更新后的协议将通过小程序内公告或在您下次登录时提示您确认。如您继续使用本小程序，即视为同意更新后的协议。</text>
+
+    <text class="section-title">九、联系我们</text>
+    <text class="section-text">如您对本协议有任何疑问、意见或投诉，或需要行使您的个人信息相关权利，请通过以下方式联系我们：2108817976@QQ.com</text>
+
+  </scroll-view>
+  <button class="agree-btn" bindtap="agree">我已阅读并同意</button>
+</view>

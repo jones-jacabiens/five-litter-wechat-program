@@ -1,0 +1,172 @@
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  /* ===== 国风设计 token ===== */
+  --red: #D63031;
+  --red-deep: #B0272E;
+  --red-light: #E4573A;
+  --paper: #F7F3EC;
+  --paper-warm: #EFE6D6;
+  --ink: #3A3A3A;
+  --ink-light: #6B6560;
+  --gold: #C9A227;
+  --gold-light: #E5C96B;
+  --safe-active: #F2C14E;
+  --safe-idle: #B9B2A6;
+  --font-title: "STKaiti", "KaiTi", "Songti SC", "STSong", "SimSun", serif;
+}
+.loader-mask{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.85);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.loader-runner{font-size:80rpx;animation:runnerMove .8s ease-in-out infinite alternate}
+.loader-text{font-size:26rpx;color:#d4233a;margin-top:20rpx;font-weight:bold}
+@keyframes runnerMove{0%{transform:translateY(0)}100%{transform:translateY(-25rpx)}}
+
+/* =====================================================
+   国风设计系统（.gf-* 通用组件）
+   标题用楷体 var(--font-title)；配色取自上方案板
+   ===================================================== */
+
+/* 宣纸卡 */
+.gf-card {
+  background: var(--paper);
+  border: 2rpx solid rgba(201, 162, 39, 0.45);
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(139, 26, 43, 0.06);
+}
+
+/* 红金渐变主按钮 */
+.gf-btn-primary {
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 42rpx;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 6rpx 18rpx rgba(192, 57, 43, 0.35);
+}
+.gf-btn-primary::after { border: none; }
+
+/* 红色印章小标 */
+.gf-seal {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  background: var(--red);
+  color: #fff;
+  font-size: 20rpx;
+  letter-spacing: 4rpx;
+  border-radius: 6rpx;
+  font-family: var(--font-title);
+  box-shadow: inset 0 0 0 2rpx rgba(255, 255, 255, 0.35);
+}
+
+/* 标题体系（楷体） */
+.gf-title { font-family: var(--font-title); color: var(--red-deep); font-weight: 600; }
+.gf-subtitle { font-family: var(--font-title); color: var(--ink-light); }
+
+/* 分区容器 + 分区标题（左侧金线竖条） */
+.gf-section { padding: 0 24rpx; }
+.gf-section-title {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-title);
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--red-deep);
+  margin-bottom: 20rpx;
+}
+.gf-section-title::before {
+  content: '';
+  width: 8rpx;
+  height: 32rpx;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  border-radius: 4rpx;
+  margin-right: 14rpx;
+}
+
+/* 金线分隔 */
+.gf-divider {
+  height: 2rpx;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  margin: 24rpx 0;
+}
+
+/* 线路卡：实拍图 + 左下角名称 + 箭头 */
+.gf-route-card {
+  width: 260rpx;
+  height: 340rpx;
+  border-radius: 18rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4rpx 16rpx rgba(139, 26, 43, 0.15);
+}
+.gf-route-img { width: 100%; height: 100%; }
+.gf-route-mask {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 40rpx 16rpx 16rpx;
+  background: linear-gradient(180deg, transparent, rgba(139, 26, 43, 0.85));
+}
+.gf-route-name {
+  display: block;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+  font-family: var(--font-title);
+}
+.gf-route-desc {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20rpx;
+  margin-top: 4rpx;
+}
+.gf-route-arrow {
+  position: absolute;
+  right: 14rpx;
+  bottom: 16rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 功能卡：图标 + 名称 + 副文案 */
+.gf-func-card {
+  background: var(--paper);
+  border: 2rpx solid rgba(201, 162, 39, 0.4);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4rpx 14rpx rgba(139, 26, 43, 0.05);
+}
+.gf-func-icon { font-size: 44rpx; line-height: 1.2; }
+.gf-func-name { font-size: 28rpx; color: var(--ink); font-weight: 600; margin-top: 12rpx; }
+.gf-func-desc { font-size: 20rpx; color: var(--ink-light); margin-top: 6rpx; }
+
+/* 安全监护突出卡（分功能区核心） */
+.gf-safe-card {
+  border-radius: 20rpx;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  padding: 28rpx;
+  color: #fff;
+  box-shadow: 0 8rpx 24rpx rgba(139, 26, 43, 0.4);
+}
+.gf-safe-title { font-family: var(--font-title); font-size: 32rpx; font-weight: 600; color: #fff; }
+.gf-safe-sub { font-size: 22rpx; color: rgba(255, 255, 255, 0.85); margin-top: 6rpx; }
+
+/* 状态点：金=在线/活跃，灰=待机 */
+.gf-status-dot {
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+}
+.gf-status-dot.active { background: var(--safe-active); box-shadow: 0 0 10rpx var(--safe-active); }
+.gf-status-dot.idle { background: var(--safe-idle); }

@@ -1,0 +1,67 @@
+<view class="page-container">
+  <!-- ====== 微信原生地图（腾讯地形底图，原生支持捏合缩放）====== -->
+  <map id="myMap" class="map"
+    latitude="{{centerLat}}"
+    longitude="{{centerLng}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+    include-points="{{allPoints}}"
+    enable-zoom
+    enable-scroll
+    show-compass
+    enable-3D="{{enable3D}}"
+    enable-overlooking="{{enable3D}}"
+    enable-pitch="{{enable3D}}"
+    enable-satellite="{{showSatellite}}"
+    show-location="{{showGps}}"
+    bindmarkertap="onMarkerTap"
+    bindregionchange="onRegionChange">
+  </map>
+
+  <!-- 地形 / 卫星切换 -->
+  <view class="layer-toggle" bindtap="toggleSatellite">
+    <text class="layer-toggle-text">{{showSatellite ? '🗺 标准' : '🛰 卫星'}}</text>
+  </view>
+
+  <!-- 顶部标题浮层 -->
+  <view class="map-header">
+    <text class="map-title" wx:if="{{showTitle}}">{{mapTitle}}</text>
+  </view>
+
+  <!-- 底部操作提示 -->
+  <view class="map-tip">
+    <text class="tip-text">{{tipText}}</text>
+  </view>
+
+  <!-- 路线滑动卡片 -->
+  <view class="route-panel {{showCards ? '' : 'collapsed'}}">
+    <view class="route-toggle" bindtap="toggleCards">
+      <text class="route-toggle-text">{{showCards ? '收起路线 ▾' : '展开路线 ▸'}}</text>
+    </view>
+    <scroll-view class="route-scroll" scroll-x wx:if="{{showCards}}">
+      <view class="route-card" wx:for="{{routeLocations}}" wx:key="id" data-index="{{index}}" bindtap="onRouteCardTap">
+        <image class="route-card-img" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="route-card-info">
+          <text class="route-card-name">{{item.name}}</text>
+          <text class="route-card-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 实时定位浮层 -->
+  <view class="gps-overlay">
+    <view class="gps-header">
+      <view class="gps-title"><image class="gps-title-icon" src="/image/icon-pin.png"></image><text>实时定位</text></view>
+      <view class="gps-switch-wrap"><switch class="gps-switch" checked="{{showGps}}" bindchange="toggleGps" color="#D63031"/></view>
+    </view>
+    <view wx:if="{{showGps}}" class="gps-list">
+      <view class="gps-item" wx:for="{{gpsMarkers}}" wx:key="id">
+        <view class="gps-dot dot-active"></view>
+        <text class="gps-name">{{item.name}}</text>
+        <text class="gps-loc">{{item.location}}</text>
+      </view>
+    </view>
+  </view>
+</view>

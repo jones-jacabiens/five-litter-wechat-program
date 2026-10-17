@@ -1,0 +1,25 @@
+.payment-page{min-height:100vh;background:#f8f8f8;padding:30rpx}
+.back-btn{position:fixed;top:20rpx;left:20rpx;z-index:100;font-size:36rpx;color:#333;background:transparent;padding:10rpx;border-radius:0;box-shadow:none}
+.payment-card{background:#fff;border-radius:20rpx;padding:40rpx;margin-top:80rpx;box-shadow:0 4rpx 20rpx rgba(0,0,0,0.06)}
+.pay-title{font-size:36rpx;font-weight:bold;color:#333;text-align:center;margin-bottom:30rpx}
+.pay-detail{display:flex;justify-content:space-between;padding:14rpx 0;font-size:26rpx}
+.pay-detail .pay-label{color:#888}
+.pay-detail .pay-value{color:#333}
+.pay-price{font-size:40rpx;color:#d4233a;font-weight:bold}
+.pay-divider{height:2rpx;background:#f0f0f0;margin:10rpx 0}
+.pay-method-label{font-size:26rpx;color:#888;display:block;margin:20rpx 0 12rpx}
+.pay-methods{display:flex;gap:16rpx}
+.pay-method{flex:1;display:flex;align-items:center;gap:10rpx;padding:16rpx;border-radius:12rpx;border:2rpx solid #eee;font-size:24rpx}
+.pay-method.selected{border-color:#d4233a;background:#fff5f5}
+.method-icon{font-size:28rpx}
+.method-check{color:#d4233a;font-weight:bold}
+.pay-btn{width:100%;height:88rpx;line-height:88rpx;background:linear-gradient(135deg,#d4233a,#8b1a2b);color:#fff;font-size:34rpx;border-radius:44rpx;margin-top:30rpx}
+.loader-mask{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.9);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.loader-runner{font-size:100rpx;animation:runnerMove .8s ease-in-out infinite alternate}
+@keyframes runnerMove{0%{transform:translateY(0)}100%{transform:translateY(-25rpx)}}
+.loader-text{font-size:28rpx;color:#d4233a;margin-top:20rpx}
+.success-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.95);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.success-circle{width:150rpx;height:150rpx;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;animation:scaleIn .4s ease}
+.success-check{font-size:80rpx;color:#fff;font-weight:bold}
+.success-text{font-size:36rpx;color:#333;margin-top:30rpx;font-weight:bold}
+@keyframes scaleIn{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}

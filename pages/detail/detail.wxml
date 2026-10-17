@@ -1,0 +1,41 @@
+<view class="detail-container">
+    <!-- 退出/返回按钮 -->
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-arrow">←</text>
+      <text class="back-text">返回地图</text>
+    </view>
+
+    <!-- 背景装饰 -->
+    <view class="bg-deco">
+      <view class="bg-circle circle-1"></view>
+      <view class="bg-circle circle-2"></view>
+    </view>
+
+    <!-- 站点标识 -->
+    <view class="site-badge">
+      <text class="site-number">{{id}}</text>
+      <text class="site-name">{{name}}</text>
+    </view>
+
+    <!-- 火柴人主体 -->
+    <view class="stickman-section">
+      <view class="stickman-wrapper">
+        <image class="stickman-image" src="/image/stickman.png" mode="aspectFit" wx:if="{{hasStickmanImage}}"></image>
+        <!-- 如果没有图片，用CSS画火柴人 -->
+        <view class="css-stickman" wx:else>
+          <view class="stickman-head"></view>
+          <view class="stickman-body"></view>
+          <view class="stickman-left-arm"></view>
+          <view class="stickman-right-arm"></view>
+          <view class="stickman-left-leg"></view>
+          <view class="stickman-right-leg"></view>
+        </view>
+      </view>
+      <text class="stickman-label">身高：{{studentHeight}}</text>
+    </view>
+
+    <!-- 底部提示 -->
+    <view class="bottom-hint">
+      <text class="hint-text">—— 更多内容即将上线 ——</text>
+    </view>
+  </view>

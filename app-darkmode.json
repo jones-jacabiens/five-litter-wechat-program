@@ -1,0 +1,20 @@
+{
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#2d2d2d",
+    "backgroundColor": "#1a1a1a"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#d4233a",
+    "borderStyle": "white",
+    "backgroundColor": "#2d2d2d",
+    "list": [
+      { "pagePath": "pages/map/map", "text": "地图", "iconPath": "image/map.png", "selectedIconPath": "image/map.png" },
+      { "pagePath": "pages/cultural/cultural", "text": "文创", "iconPath": "image/cultural.png", "selectedIconPath": "image/cultural.png" },
+      { "pagePath": "pages/signup/signup", "text": "报名处", "iconPath": "image/signup.png", "selectedIconPath": "image/signup.png" },
+      { "pagePath": "pages/award/award", "text": "颁奖", "iconPath": "image/award.png", "selectedIconPath": "image/award.png" },
+      { "pagePath": "pages/profile/profile", "text": "我的", "iconPath": "image/profile.png", "selectedIconPath": "image/profile.png" }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+.tabbar-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  padding: 0 24rpx calc(12rpx + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+.tabbar-ink {
+  pointer-events: auto;
+  display: flex;
+  background: linear-gradient(160deg, #FBF8F2 0%, #F1E7D9 100%);
+  border: 2rpx solid rgba(201, 162, 39, 0.55);
+  border-radius: 32rpx;
+  padding: 12rpx 8rpx;
+  box-shadow: 0 8rpx 30rpx rgba(60, 50, 40, 0.16);
+}
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 0 4rpx;
+  border-radius: 20rpx;
+}
+.tabbar-item.active {
+  background: rgba(214, 48, 49, 0.1);
+}
+.tabbar-icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+.tabbar-text {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #8A8478;
+  letter-spacing: 2rpx;
+}
+.tabbar-item.active .tabbar-text {
+  color: #D63031;
+  font-weight: bold;
+}

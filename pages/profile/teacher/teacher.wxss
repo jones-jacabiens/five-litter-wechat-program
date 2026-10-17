@@ -1,0 +1,11 @@
+.teacher-page{min-height:100vh;background:linear-gradient(180deg,#fff5f5,#f5f5f5);padding:30rpx}
+.back-btn{position:fixed;top:20rpx;left:20rpx;z-index:100;font-size:36rpx;color:#333;background:transparent;padding:10rpx;border-radius:0;box-shadow:none}
+.teacher-card{background:linear-gradient(135deg,#d4233a,#8b1a2b);border-radius:24rpx;padding:60rpx 40rpx;text-align:center;margin-top:80rpx}
+.teacher-emoji{font-size:100rpx;display:block}
+.teacher-name{font-size:40rpx;font-weight:bold;color:#fff;display:block;margin-top:20rpx}
+.teacher-title{font-size:26rpx;color:rgba(255,255,255,0.85);display:block;margin-top:10rpx}
+.info-section{background:#fff;border-radius:20rpx;padding:30rpx;margin-top:30rpx}
+.info-item{display:flex;padding:20rpx 0;border-bottom:2rpx solid #f5f5f5}
+.info-item:last-child{border-bottom:none}
+.info-label{width:140rpx;font-size:26rpx;color:#888}
+.info-value{flex:1;font-size:26rpx;color:#333}

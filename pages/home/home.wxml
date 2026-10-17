@@ -1,0 +1,98 @@
+<view class="home-page">
+  <!-- ===== 总功能区：国风 Hero ===== -->
+  <view class="hero">
+    <view class="hero-top">
+      <view class="hero-left">
+        <view class="brand">
+          <text class="brand-name">智慧五小</text>
+          <text class="gf-seal">红色研学</text>
+        </view>
+        <view class="hero-slogan">
+          <text class="slogan-main">渝见红途 · 兴在乡野</text>
+          <text class="slogan-sub">沉浸式红色研学 · “五小”先锋行</text>
+        </view>
+      </view>
+      <image class="brand-logo" src="/image/logo.png" mode="aspectFit"></image>
+    </view>
+
+    <view class="hero-route">
+      <view class="hero-route-track">
+        <view class="hero-route-line"></view>
+        <view class="hero-route-node" wx:for="{{routeShort}}" wx:key="name" style="left: {{12 + index * 12.6}}%">
+          <view class="hero-route-dot"></view>
+          <text class="hero-route-node-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="mtn mtn-1"></view>
+    <view class="mtn mtn-2"></view>
+    <view class="mtn mtn-3"></view>
+  </view>
+
+  <!-- ===== 总功能区：线路概览 ===== -->
+  <view class="gf-section route-section">
+    <view class="gf-section-title">烽火渝路 · 七站研学</view>
+    <scroll-view class="route-scroll" scroll-x enable-flex>
+      <view class="route-row">
+        <view class="gf-route-card" wx:for="{{routeLocations}}" wx:key="id" data-index="{{index}}" bindtap="goRoute">
+          <image class="gf-route-img" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="gf-route-mask">
+            <text class="gf-route-name">{{item.name}}</text>
+            <text class="gf-route-desc">{{item.desc}}</text>
+          </view>
+          <view class="gf-route-arrow">›</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- ===== 五小 IP ===== -->
+  <view class="gf-section ip-section">
+    <view class="gf-section-title">五小先锋 IP</view>
+    <scroll-view class="ip-scroll" scroll-x enable-flex>
+      <view class="ip-row">
+        <view class="ip-card" wx:for="{{ipRoles}}" wx:key="name">
+          <image class="ip-img" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="ip-info">
+            <text class="ip-name">{{item.name}}</text>
+            <text class="ip-place">{{item.place}}</text>
+            <text class="ip-skills">{{item.skills}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- ===== 快捷入口 ===== -->
+  <view class="gf-section quick-section">
+    <view class="gf-section-title">快捷入口</view>
+    <view class="quick-grid">
+      <view class="quick-item" wx:for="{{quickLinks}}" wx:key="name" data-url="{{item.url}}" data-tab="{{item.tab}}" bindtap="goQuick">
+        <image class="quick-icon" src="{{item.icon}}"></image>
+        <text class="quick-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 分功能区：实时定位 · 安全监护（核心） ===== -->
+  <view class="func-area">
+    <view class="gf-safe-card" bindtap="goMap">
+      <view class="safe-main">
+        <text class="gf-safe-title">实时定位 · 安全监护</text>
+        <view class="safe-status">
+          <view class="gf-status-dot active"></view>
+          <text class="gf-safe-sub">{{safeStatus.online}}/{{safeStatus.total}} 名小营员在线 · {{safeStatus.activity}}</text>
+        </view>
+        <view class="safe-snapshot">
+          <view class="snap-item" wx:for="{{safeStatus.children}}" wx:key="name">
+            <view class="gf-status-dot active"></view>
+            <text class="snap-name">{{item.name}}</text>
+            <text class="snap-loc">{{item.location}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="safe-btn">进入地图 ›</view>
+    </view>
+  </view>
+</view>

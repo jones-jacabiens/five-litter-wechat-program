@@ -1,0 +1,185 @@
+<view class="cultural-page">
+  <view class="header-banner">
+    <text class="header-title">五小文创</text>
+    <text class="header-subtitle">传承红色记忆 · 助力乡村振兴</text>
+  </view>
+
+  <view class="tab-bar">
+    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">
+      <image class="tab-icon" src="/image/icon-tree.png"/>
+      <text class="tab-text">云认养</text>
+    </view>
+    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">
+      <image class="tab-icon" src="/image/icon-gift.png"/>
+      <text class="tab-text">文创商城</text>
+    </view>
+
+  </view>
+
+  <!-- 云认养板块 -->
+  <view wx:if="{{currentTab == 0}}" class="section-content">
+    <view class="adoption-intro">
+      <view class="intro-title"><image class="icon-sm" src="/image/icon-tree.png"/><text>云认养小先锋</text></view>
+      <text class="intro-desc">每棵梨树/茶树都有专属编号，认养后可实时互动，果实成熟后邮寄到家！</text>
+    </view>
+
+    <view class="search-box">
+      <input class="search-input" placeholder="梨树LS-001 / 茶树CS-001" bindinput="onSearchInput" value="{{searchKey}}" />
+      <button class="search-btn" bindtap="doSearch"><image class="icon-xs" src="/image/icon-search.png"/>认养</button>
+    </view>
+
+    <view class="back-arrow-tree" bindtap="backToTreeList" wx:if="{{showTree}}">‹ 返回</view>
+    <view wx:if="{{showTree}}" class="tree-detail">
+      <image class="tree-img" src="{{treeInfo.image}}"></image>
+      <view class="tree-info">
+        <text class="tree-name">{{treeInfo.name}}</text>
+        <text class="tree-id">编号：{{treeInfo.id}}</text>
+        <text class="tree-location">📍 {{treeInfo.location}}</text>
+        <text class="tree-status">状态：{{treeInfo.adopted ? '已被认养' : '可认养'}}</text>
+      </view>
+
+      <view wx:if="{{!treeInfo.adopted}}" class="action-area">
+        <button class="adopt-btn" bindtap="doAdopt"><image class="icon-xs" src="/image/icon-heart.png"/>立即认养</button>
+      </view>
+
+      <view wx:if="{{adopted}}" class="interact-area">
+        <view class="interact-title"><image class="icon-sm" src="/image/icon-tree.png"/><text>我的小苗</text></view>
+        <view class="growth-bar">
+          <view class="growth-fill" style="width: {{growth}}%"></view>
+        </view>
+        <text class="growth-text">成长值：{{growth}}%</text>
+        <view class="interact-btns">
+          <button class="action-btn" bindtap="waterTree"><image class="icon-xs" src="/image/icon-drop.png"/>浇水</button>
+          <button class="action-btn" bindtap="fertilizeTree"><image class="icon-xs" src="/image/icon-leaf.png"/>施肥</button>
+        </view>
+        <text class="interact-hint">每浇水/施肥一次，成长值+5%！果实成熟后可邮寄到家</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!showTree && !searched}}" class="tree-list">
+      <text class="list-title">🌿 推荐认养</text>
+      <view class="tree-card" wx:for="{{recommendTrees}}" wx:key="id" data-id="{{item.id}}" bindtap="selectRecommend">
+        <text class="card-name">{{item.name}}</text>
+        <text class="card-id">编号：{{item.id}}</text>
+        <text class="card-location">{{item.location}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 文创商城板块 -->
+  <view wx:if="{{currentTab == 1}}" class="section-content">
+    <!-- 分类切换 -->
+    <view class="sub-tabs">
+      <view class="sub-tab {{subTab == 0 ? 'active' : ''}}" bindtap="switchSubTab" data-tab="0"><image class="icon-xs" src="/image/icon-gift.png"/>文创商品</view>
+      <view class="sub-tab {{subTab == 1 ? 'active' : ''}}" bindtap="switchSubTab" data-tab="1"><image class="icon-xs" src="/image/icon-star.png"/>积分商城</view>
+      <view class="sub-tab {{subTab == 2 ? 'active' : ''}}" bindtap="switchSubTab" data-tab="2"><image class="icon-xs" src="/image/icon-leaf.png"/>助农产品</view>
+    </view>
+
+    <!-- 子Tab0: 文创商品 -->
+    <view wx:if="{{subTab == 0}}">
+      <view class="shop-header">
+        <view class="shop-title"><image class="icon-sm" src="/image/icon-gift.png"/><text>文创商品</text></view>
+        <text class="shop-desc">带走一份红色记忆</text>
+      </view>
+      <view class="product-grid">
+        <view class="product-card" wx:for="{{products}}" wx:key="name">
+          <view class="product-img-placeholder">{{item.emoji}}</view>
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-price">¥{{item.price}}</text>
+          <view class="product-btns">
+            <button class="cart-btn" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="addToCart">加入购物车</button>
+            <button class="buy-btn" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="buyNow">立即购买</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 子Tab1: 积分商城 -->
+    <view wx:if="{{subTab == 1}}">
+      <view class="shop-header">
+        <view class="shop-title"><image class="icon-sm" src="/image/icon-star.png"/><text>积分商城</text></view>
+        <text class="shop-desc">使用积分兑换专属好物</text>
+      </view>
+      <view class="points-header-inline">
+        <view class="points-balance"><image class="icon-sm" src="/image/icon-star.png"/><text>{{points}}</text></view>
+        <text class="points-label">我的积分</text>
+      </view>
+      <view class="promo-bar" bindtap="showPromoRules">
+        <text class="promo-bar-text">📢 优惠须知 &amp; 积分攻略 ›</text>
+      </view>
+      <view class="product-grid">
+        <view class="product-card" wx:for="{{pointsItems}}" wx:key="name">
+          <view class="product-img-placeholder">{{item.icon}}</view>
+          <text class="product-name">{{item.name}}</text>
+          <view class="promo-tag-mini" wx:if="{{item.cost <= 80}}">🔥 热门</view>
+          <view class="promo-tag-mini gold" wx:if="{{item.cost >= 150}}">👑 精选</view>
+          <text class="product-price">{{item.cost}}积分</text>
+          <button class="buy-btn" data-name="{{item.name}}" data-cost="{{item.cost}}" data-icon="{{item.icon}}" bindtap="redeemPoint">{{item.redeemed ? '已兑换' : '兑换'}}</button>
+        </view>
+      </view>
+      <view class="earn-section" bindtap="showPromoRules">
+        <text class="earn-title">💡 如何赚积分？</text>
+        <text class="earn-text">参加研学 +100 | 完成任务 +20/个 | 评价 +10 | 推荐 +30</text>
+      </view>
+    </view>
+
+    <!-- 子Tab2: 助农产品 -->
+    <view wx:if="{{subTab == 2}}">
+      <view class="shop-header">
+        <view class="shop-title"><image class="icon-sm" src="/image/icon-leaf.png"/><text>助农产品</text></view>
+        <text class="shop-desc">红色研学引流 · 乡村产业受益</text>
+      </view>
+      <view class="product-grid">
+        <view class="product-card" wx:for="{{farmProducts}}" wx:key="name">
+          <view class="product-img-placeholder"><image wx:if="{{item.image}}" class="farm-img" src="{{item.image}}" mode="aspectFill"></image><text wx:else>{{item.emoji}}</text></view>
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-tag">{{item.tag}}</text>
+          <text class="product-price">¥{{item.price}}</text>
+          <view class="product-btns">
+            <button class="cart-btn" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="addToCart">加入购物车</button>
+            <button class="buy-btn" data-name="{{item.name}}" data-price="{{item.price}}" bindtap="buyNow">立即购买</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 优惠须知弹窗 -->
+    <view class="promo-mask" wx:if="{{showPromo}}" bindtap="hidePromoRules"></view>
+    <view class="promo-panel" wx:if="{{showPromo}}">
+      <text class="promo-panel-title">🎉 优惠须知 &amp; 积分攻略</text>
+      <text class="promo-item">1. 限时优惠：每月1日积分商品8折兑换</text>
+      <text class="promo-item">2. 新人有礼：首次注册即送50积分</text>
+      <text class="promo-item">3. 推荐有奖：每推荐1位好友注册得30积分</text>
+      <text class="promo-item">4. 拼团优惠：3人组团兑换享额外9折</text>
+      <text class="promo-item">5. 学校团体价：学校集体报名额外赠送200积分</text>
+      <text class="promo-item">6. 积分有效期：自获取之日起12个月</text>
+      <text class="promo-item">7. 每月积分排行榜前10名额外奖励50积分</text>
+      <button class="promo-gotit" bindtap="hidePromoRules">我知道了</button>
+    </view><!-- 购物车浮层按钮 -->
+    <view class="cart-float" bindtap="toggleCart" wx:if="{{cartItems.length > 0}}">
+      <image class="cart-icon" src="/image/icon-cart.png"/>
+      <text class="cart-badge">{{cartItems.length}}</text>
+    </view>
+
+    <!-- 购物车详情 -->
+    <view class="cart-drawer" wx:if="{{showCart}}">
+      <view class="cart-mask" bindtap="toggleCart"></view>
+      <view class="cart-panel">
+        <text class="cart-panel-title">购物车</text>
+        <view class="cart-item" wx:for="{{cartItems}}" wx:key="name">
+          <text class="cart-item-name">{{item.name}}</text>
+          <text class="cart-item-count">x{{item.count}}</text>
+          <text class="cart-item-price">¥{{item.price * item.count}}</text>
+        </view>
+        <view class="cart-total" wx:if="{{cartItems.length > 0}}">
+          <text class="cart-total-text">合计：¥{{cartTotal}}</text>
+          <view class="cart-actions">
+            <button class="cart-btn-buy" bindtap="buyAllCart">购买</button>
+            <button class="cart-checkout" bindtap="clearCart">清空</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

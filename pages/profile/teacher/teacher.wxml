@@ -1,0 +1,14 @@
+<view class="teacher-page">
+  <view class="teacher-card">
+    <text class="teacher-emoji">🧑‍🏫</text>
+    <text class="teacher-name">小d老师</text>
+    <text class="teacher-title">红色研学导师</text>
+  </view>
+  <view class="info-section">
+    <view class="info-item"><text class="info-label">姓名</text><text class="info-value">小d老师</text></view>
+    <view class="info-item"><text class="info-label">职务</text><text class="info-value">金牌导师</text></view>
+    <view class="info-item"><text class="info-label">经验</text><text class="info-value">3年研学经验</text></view>
+    <view class="info-item"><text class="info-label">擅长</text><text class="info-value">历史讲解、沉浸式教学、团队拓展</text></view>
+    <view class="info-item"><text class="info-label">简介</text><text class="info-value">专注红色研学教育，擅长用故事化的方式引导孩子们走进历史、理解历史。</text></view>
+  </view>
+</view>

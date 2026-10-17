@@ -1,0 +1,41 @@
+<view class="back-btn" bindtap="goBack">‹ 返回</view>
+  <view class="book-container">
+    <view class="book" bindtap="onBookTap">
+      <!-- 左侧页（封面 / 当前页） -->
+      <view class="page-left {{flipped ? 'flipped' : ''}}">
+        <view class="page-inner">
+          <view class="page-front">
+            <text class="page-number">{{currentPage + 1}}</text>
+            <text class="page-content" wx:if="{{currentPage === 0}}">研学手册</text>
+            <text class="page-content" wx:if="{{currentPage > 0}}"></text>
+          </view>
+          <view class="page-back">
+            <text class="page-number">{{currentPage + 2}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 右侧页（下一页） -->
+      <view class="page-right">
+        <view class="page-inner">
+          <view class="page-front">
+            <text class="page-number">{{currentPage + 2}}</text>
+          </view>
+          <view class="page-back">
+            <text class="page-number">{{currentPage + 3}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 翻页提示 -->
+    <view class="flip-hint">
+      <text wx:if="{{currentPage === 0}}">点击右侧翻页</text>
+      <text wx:else>← 点左侧翻回 · 点右侧继续 →</text>
+    </view>
+
+    <!-- 页码指示 -->
+    <view class="page-indicator">
+      <text>{{currentPage + 1}} / {{totalPages}}</text>
+    </view>
+  </view>

@@ -1,0 +1,52 @@
+<view class="signup-page">
+  <view class="loader-mask" wx:if="{{loading}}"><text class="loader-runner">🏃</text><text class="loader-text">提交中...</text></view>
+  <view class="hero-section">
+    <text class="hero-title">智慧五小 · 烽火渝路研学</text>
+    <text class="hero-sub">沉浸式红色研学之旅 · 即刻启程</text>
+    <view class="price-tag">
+      <text class="price">¥1280</text>
+      <text class="price-note">起/人</text>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input class="form-input" placeholder="请输入学生姓名" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">电话</text>
+      <input class="form-input" type="phone" placeholder="请输入家长联系电话" bindinput="onPhoneInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">线路</text>
+      <picker class="form-picker" range="{{routes}}" bindchange="onRouteChange">
+        <view class="picker-display">{{selectedRoute || '请选择研学线路'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">人数</text>
+      <input class="form-input" type="number" placeholder="参加人数" bindinput="onCountInput" />
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submitSignup">立即报名</button>
+
+  <view class="footer-info">
+    <text class="footer-text">* 报名后客服将在24小时内与您联系确认</text>
+    <text class="footer-text" style="margin-top:8rpx;">如需询问详情，请致电：400-123-4567</text>
+  </view>
+
+  <!-- 延伸产品 -->
+  <view class="ext-section">
+    <view class="st-title"><view class="st-dot"></view><text>延伸产品 · 即将上线</text></view>
+    <view class="ext-grid">
+      <view class="ext-card" wx:for="{{extProducts}}" wx:key="name">
+        <view class="ext-name">{{item.name}}</view>
+        <text class="ext-desc">{{item.desc}}</text>
+        <view class="ext-status">{{item.status}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

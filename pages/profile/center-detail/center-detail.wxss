@@ -1,0 +1,30 @@
+.cd-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FBF8F2 0%, #F3EBDE 100%);
+  padding: 30rpx;
+}
+.cd-header {
+  text-align: center;
+  padding: 20rpx 0 30rpx;
+}
+.cd-title {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #B0272E;
+  font-family: var(--font-title);
+  letter-spacing: 4rpx;
+}
+.cd-list {
+  background: linear-gradient(120deg, #F7F3EC, #F1E7D9);
+  border: 2rpx solid rgba(201, 162, 39, 0.5);
+  border-radius: 22rpx 18rpx 22rpx 18rpx;
+  overflow: hidden;
+}
+.cd-item {
+  padding: 30rpx;
+  border-bottom: 2rpx solid rgba(201, 162, 39, 0.3);
+}
+.cd-item:last-child { border-bottom: none; }
+.cd-name { font-size: 30rpx; font-weight: bold; color: #3A3A3A; display: block; }
+.cd-value { font-size: 26rpx; color: #D63031; font-weight: bold; display: block; margin-top: 8rpx; }
+.cd-note { font-size: 22rpx; color: #8A8478; display: block; margin-top: 6rpx; }

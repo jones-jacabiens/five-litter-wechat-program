@@ -1,0 +1,19 @@
+<view class="payment-page">
+  <view class="loader-mask" wx:if="{{loading}}"><text class="loader-runner">🏃</text><text class="loader-text">支付处理中...</text></view>
+  <view class="success-overlay" wx:if="{{showSuccess}}"><view class="success-circle"><text class="success-check">✓</text></view><text class="success-text">支付成功！</text></view>
+  <view class="payment-card" wx:if="{{!loading && !showSuccess}}">
+    <text class="pay-title">确认订单</text>
+    <view class="pay-detail"><text class="pay-label">商品</text><text class="pay-value">{{name}}</text></view>
+    <view class="pay-detail"><text class="pay-label">单价</text><text class="pay-value">¥{{price}}</text></view>
+    <view class="pay-detail"><text class="pay-label">数量</text><text class="pay-value">1</text></view>
+    <view class="pay-detail"><text class="pay-label">运费</text><text class="pay-value">¥0</text></view>
+    <view class="pay-divider"></view>
+    <view class="pay-detail"><text class="pay-label">合计</text><text class="pay-price">¥{{price}}</text></view>
+    <text class="pay-method-label">选择支付方式</text>
+    <view class="pay-methods">
+      <view class="pay-method {{payMethod == 'wx' ? 'selected' : ''}}" bindtap="selectPay" data-method="wx"><text class="method-icon">💚</text><text class="method-name">微信支付</text><text class="method-check">{{payMethod == 'wx' ? '✓' : ''}}</text></view>
+      <view class="pay-method {{payMethod == 'ali' ? 'selected' : ''}}" bindtap="selectPay" data-method="ali"><text class="method-icon">💙</text><text class="method-name">支付宝</text><text class="method-check">{{payMethod == 'ali' ? '✓' : ''}}</text></view>
+    </view>
+    <button class="pay-btn" bindtap="doPay">确认支付 ¥{{price}}</button>
+  </view>
+</view>

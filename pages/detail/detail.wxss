@@ -1,0 +1,197 @@
+.detail-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f4ef;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: absolute;
+  top: 100rpx;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  background: rgba(255,255,255,0.9);
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.08);
+  z-index: 100;
+}
+
+.back-arrow {
+  font-size: 28rpx;
+  color: #d4233a;
+  margin-right: 8rpx;
+}
+
+.back-text {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.bg-deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.06;
+}
+
+.circle-1 {
+  width: 600rpx;
+  height: 600rpx;
+  background: #d4233a;
+  top: -200rpx;
+  right: -150rpx;
+}
+
+.circle-2 {
+  width: 400rpx;
+  height: 400rpx;
+  background: #d4233a;
+  bottom: -100rpx;
+  left: -100rpx;
+}
+
+.site-badge {
+  position: absolute;
+  top: 60rpx;
+  left: 40rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(212,35,58,0.1);
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+}
+
+.site-number {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #d4233a;
+  margin-right: 12rpx;
+}
+
+.site-name {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.stickman-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stickman-wrapper {
+  width: 200rpx;
+  height: 360rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stickman-image {
+  width: 120rpx;
+  height: 280rpx;
+}
+
+/* CSS 火柴人（fallback） */
+.css-stickman {
+  position: relative;
+  width: 100rpx;
+  height: 300rpx;
+}
+
+.stickman-head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 40rpx;
+  background: #333;
+  border-radius: 50%;
+}
+
+.stickman-body {
+  position: absolute;
+  top: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rpx;
+  height: 120rpx;
+  background: #333;
+}
+
+.stickman-left-arm {
+  position: absolute;
+  top: 60rpx;
+  left: 50%;
+  width: 60rpx;
+  height: 4rpx;
+  background: #333;
+  transform: rotate(30deg);
+  transform-origin: left center;
+}
+
+.stickman-right-arm {
+  position: absolute;
+  top: 60rpx;
+  left: 50%;
+  width: 60rpx;
+  height: 4rpx;
+  background: #333;
+  transform: rotate(-30deg);
+  transform-origin: left center;
+}
+
+.stickman-left-leg {
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  width: 60rpx;
+  height: 4rpx;
+  background: #333;
+  transform: rotate(20deg);
+  transform-origin: left center;
+}
+
+.stickman-right-leg {
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  width: 60rpx;
+  height: 4rpx;
+  background: #333;
+  transform: rotate(-20deg);
+  transform-origin: left center;
+}
+
+.stickman-label {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.bottom-hint {
+  position: absolute;
+  bottom: 60rpx;
+}
+
+.hint-text {
+  font-size: 24rpx;
+  color: #ccc;
+}
